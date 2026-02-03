@@ -1,15 +1,17 @@
 # Hackathon-0-FTE-s-
-Personal AI Employee - Silver Tier Implementation
+Personal AI Employee - Gold Tier Implementation
 
 ## Overview
 This repository contains a multi-tier autonomous AI employee system with:
 - Bronze Tier: Basic file system watcher and task processing
 - Silver Tier: Multi-channel monitoring (Gmail, WhatsApp, LinkedIn) with advanced automation
+- Gold Tier: Full autonomous business operations with cross-domain integration and Odoo accounting
 
 ## Directory Structure
 - `AI_Employee_Vault/` - Bronze Tier implementation
 - `AI_Employee_Vault_Silver/` - Silver Tier implementation with multi-channel capabilities
-- `.claude/skills/` - Claude skills for both tiers
+- `AI_Employee_Vault_Gold/` - Gold Tier implementation with full business automation
+- `.claude/skills/` - Claude skills for all tiers
 - `.specify/` - System specification templates
 
 ## Tiers
@@ -26,11 +28,23 @@ This repository contains a multi-tier autonomous AI employee system with:
 - MCP server integration for cross-platform actions
 - Comprehensive dashboard with multi-channel view
 
+### Gold Tier
+- Full cross-domain integration (Personal + Business)
+- Odoo Community accounting integration via JSON-RPC API
+- Facebook and Instagram integration
+- Twitter (X) integration
+- Multiple MCP servers (Odoo, Facebook, Instagram, Twitter/X)
+- Weekly Business and Accounting Audit with CEO Briefing
+- Error recovery and graceful degradation
+- Comprehensive audit logging
+- Ralph Wiggum loop for autonomous multi-step tasks
+
 ## Getting Started
 1. Review README_BRONZE.md for Bronze Tier setup
 2. Review README_SILVER.md for Silver Tier setup
-3. Configure environment variables in .env
-4. Start the appropriate orchestrator for your tier
+3. Review README_GOLD.md for Gold Tier setup
+4. Configure environment variables in .env
+5. Start the appropriate orchestrator for your tier
 
 ## Current Status
-Silver Tier operational with complete multi-channel monitoring capabilities.
+Gold Tier operational with complete autonomous business operations, cross-domain integration, and Odoo accounting system.
