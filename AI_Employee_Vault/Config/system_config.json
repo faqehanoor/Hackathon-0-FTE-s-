@@ -1,0 +1,8 @@
+{
+  "claude_path": "claude",
+  "check_interval": 60,
+  "max_iterations": 5,
+  "dry_run": true,
+  "vault_path": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault",
+  "drop_folder": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault/Drop_Folder"
+}

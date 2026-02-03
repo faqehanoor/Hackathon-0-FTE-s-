@@ -1,0 +1,3 @@
+This is a sample task file to test the Bronze Tier AI Employee system.
+The file watcher should detect this file and create a task in the Needs_Action folder.
+The orchestrator should then process this task automatically.
