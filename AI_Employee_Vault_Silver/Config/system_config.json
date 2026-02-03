@@ -1,0 +1,77 @@
+{
+  "claude_path": "claude",
+  "claude_model": "claude-3-5-sonnet",
+  "check_interval": 30,
+  "max_iterations": 10,
+  "dry_run": false,
+  "tier": "silver",
+  "approval_required": {
+    "financial_transactions": true,
+    "external_communications": true,
+    "linkedin_posts": true,
+    "email_responses": true,
+    "whatsapp_messages": true,
+    "policy_changes": true
+  },
+  "watchers": {
+    "gmail": {
+      "enabled": true,
+      "check_interval": 60,
+      "folder": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Silver/Watchers/Gmail"
+    },
+    "whatsapp": {
+      "enabled": true,
+      "check_interval": 120,
+      "folder": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Silver/Watchers/WhatsApp"
+    },
+    "linkedin": {
+      "enabled": true,
+      "check_interval": 300,
+      "folder": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Silver/Watchers/LinkedIn"
+    },
+    "file_system": {
+      "enabled": true,
+      "check_interval": 30,
+      "folder": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Silver/Watchers/File_System"
+    }
+  },
+  "file_watchers": [
+    {
+      "path": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Silver/Drop_Folder",
+      "file_types": [".txt", ".pdf", ".doc", ".docx", ".md", ".xlsx", ".xls", ".ppt", ".pptx"],
+      "actions": ["create_task"]
+    }
+  ],
+  "logging": {
+    "level": "info",
+    "location": "C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Silver/Logs",
+    "retention_days": 30
+  },
+  "security": {
+    "encryption_enabled": true,
+    "api_timeout": 30,
+    "max_file_size_mb": 10
+  },
+  "mcp_servers": {
+    "email_mcp": {
+      "enabled": true,
+      "type": "gmail_api",
+      "endpoint": "https://gmail.googleapis.com/"
+    },
+    "linkedin_mcp": {
+      "enabled": true,
+      "type": "linkedin_api",
+      "endpoint": "https://api.linkedin.com/"
+    },
+    "whatsapp_mcp": {
+      "enabled": true,
+      "type": "whatsapp_business_api",
+      "endpoint": "https://graph.facebook.com/"
+    },
+    "browser_mcp": {
+      "enabled": true,
+      "type": "playwright",
+      "endpoint": "local_browser"
+    }
+  }
+}
