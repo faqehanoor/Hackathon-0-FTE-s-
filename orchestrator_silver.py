@@ -18,7 +18,7 @@ class SilverOrchestrator:
     def setup_directories(self):
         """Ensure all required directories exist"""
         dirs = ['Needs_Action', 'Plans', 'Approved', 'Rejected',
-                'Pending_Approval', 'Done', 'Logs']
+                'Pending_Approval', 'Done', 'Logs', 'Simulated_Inputs/WhatsApp']
         for dir_name in dirs:
             (self.vault / dir_name).mkdir(exist_ok=True)
 
@@ -122,6 +122,7 @@ class SilverOrchestrator:
 - Flag payments over $500
 - Get approval for external communications
 - Follow multi-channel processing guidelines
+- For business promotion, create LinkedIn posts
 
 Create a detailed plan now."""
         return prompt
@@ -182,6 +183,7 @@ status: active
 - [LINK] LinkedIn Watcher: Active
 - [EMAIL] Email Watcher: Active
 - [CHAT] WhatsApp Watcher: Active
+- [TIME] Scheduler: Active
 
 ## Task Summary
 - **Needs Action**: {needs_action}
@@ -207,6 +209,7 @@ Silver Tier active – watchers monitoring Gmail + WhatsApp + LinkedIn + File Sy
 ## Daily Briefing
 - Processed multi-channel inputs
 - All watchers active and monitoring
+- LinkedIn posts pending approval: {pending}
 - Ready to process new inputs
 
 ---
@@ -261,11 +264,9 @@ Silver Tier active – watchers monitoring Gmail + WhatsApp + LinkedIn + File Sy
                         success = self.process_with_claude(task)
 
                         if success:
-                            # Move to Needs_Action folder for further processing
-                            needs_action_file = self.vault / 'Needs_Action' / task.name
-                            
-                            # Only move if it's not already in Needs_Action
-                            if task.parent != self.vault / 'Needs_Action':
+                            # Move to Needs_Action folder for further processing if not already there
+                            if task.parent.name not in ['Needs_Action', 'Done', 'Approved', 'Rejected', 'Pending_Approval']:
+                                needs_action_file = self.vault / 'Needs_Action' / task.name
                                 task.rename(needs_action_file)
                                 print(f"  [CHECK] Moved to Needs_Action: {task.name}")
 
