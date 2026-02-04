@@ -13,15 +13,15 @@ def create_demo_scenario():
     print("PLATINUM TIER DEMO: Hybrid Cloud + Local Workflow")
     print("=" * 60)
     print()
-    
+
     # Define vault path
     vault_path = Path("C:/Users/manal/OneDrive/Desktop/Hacakthon 0/AI_Employee_Vault_Platinum")
-    
+
     print("SCENARIO: Email received while Local Agent is offline")
     print("-" * 50)
-    
+
     # Step 1: Simulate email received while local is offline
-    print("1. 📧 Email received at Cloud Agent while Local Agent offline")
+    print("1. [EMAIL] Email received at Cloud Agent while Local Agent offline")
     email_task = vault_path / "Needs_Action" / "email" / f"email_task_{int(datetime.now().timestamp())}.md"
     email_content = f"""---
 type: email_received
@@ -41,19 +41,19 @@ Can you please send me the invoice for the project we discussed last week? I nee
 - [ ] Wait for Local Agent approval
 """
     email_task.write_text(email_content)
-    print(f"   → Created task: {email_task.name}")
-    
+    print(f"   -> Created task: {email_task.name}")
+
     # Step 2: Cloud Agent processes the email
-    print("\n2. ☁️  Cloud Agent processes email (while Local Agent offline)")
-    print("   → Cloud Agent claims task using claim-by-move rule")
-    
+    print("\n2. [CLOUD] Cloud Agent processes email (while Local Agent offline)")
+    print("   -> Cloud Agent claims task using claim-by-move rule")
+
     # Move to in-progress
     in_progress_dir = vault_path / "In_Progress" / "cloud"
     in_progress_dir.mkdir(exist_ok=True)
     claimed_task = in_progress_dir / f"cloud_{email_task.name}"
     email_task.rename(claimed_task)
-    print(f"   → Claimed task: {claimed_task.name}")
-    
+    print(f"   -> Claimed task: {claimed_task.name}")
+
     # Create draft plan
     plan_file = vault_path / "Plans" / "email" / f"plan_{email_task.stem}.md"
     plan_content = f"""---
@@ -104,10 +104,10 @@ YES - Creating invoice in Odoo and sending email response
 MEDIUM - Financial transaction requiring approval
 """
     plan_file.write_text(plan_content)
-    print(f"   → Created plan: {plan_file.name}")
-    
+    print(f"   -> Created plan: {plan_file.name}")
+
     # Step 3: Cloud Agent creates approval request
-    print("\n3. ☁️  Cloud Agent creates approval request")
+    print("\n3. [CLOUD] Cloud Agent creates approval request")
     approval_dir = vault_path / "Pending_Approval" / "accounting"
     approval_dir.mkdir(exist_ok=True)
     approval_file = approval_dir / f"req_inv_{int(datetime.now().timestamp())}_approval.md"
@@ -158,37 +158,37 @@ Please review and approve the creation of this invoice in Odoo and the email res
 - Move this file to /Rejected/ with reason to cancel
 """
     approval_file.write_text(approval_content)
-    print(f"   → Created approval request: {approval_file.name}")
-    
-    print("\n4. 💤 Local Agent remains offline - Cloud Agent continues monitoring")
-    print("   → Cloud Agent has completed draft work and awaits approval")
-    print("   → System remains operational despite Local Agent being offline")
-    
-    print("\n5. 🔄 Local Agent comes online - discovers approval request")
-    print("   → Local Agent scans Pending_Approval/accounting/ directory")
-    print(f"   → Discovers: {approval_file.name}")
-    
-    print("\n6. ✅ Local Agent approves the request")
+    print(f"   -> Created approval request: {approval_file.name}")
+
+    print("\n4. [SLEEP] Local Agent remains offline - Cloud Agent continues monitoring")
+    print("   -> Cloud Agent has completed draft work and awaits approval")
+    print("   -> System remains operational despite Local Agent being offline")
+
+    print("\n5. [SYNC] Local Agent comes online - discovers approval request")
+    print("   -> Local Agent scans Pending_Approval/accounting/ directory")
+    print(f"   -> Discovers: {approval_file.name}")
+
+    print("\n6. [APPROVE] Local Agent approves the request")
     approved_dir = vault_path / "Approved"
     approved_dir.mkdir(exist_ok=True)
     approved_file = approved_dir / f"approved_{approval_file.name}"
     approval_file.rename(approved_file)
-    print(f"   → Moved to Approved: {approved_file.name}")
-    
-    print("\n7. 🚀 Local Agent executes the approved action")
-    print("   → Local Agent calls Odoo MCP to create invoice")
-    print("   → Local Agent calls Email MCP to send response")
-    
+    print(f"   -> Moved to Approved: {approved_file.name}")
+
+    print("\n7. [EXECUTE] Local Agent executes the approved action")
+    print("   -> Local Agent calls Odoo MCP to create invoice")
+    print("   -> Local Agent calls Email MCP to send response")
+
     # Simulate execution
     done_dir = vault_path / "Done"
     done_dir.mkdir(exist_ok=True)
     executed_file = done_dir / f"executed_{approved_file.name}"
     approved_file.rename(executed_file)
-    print(f"   → Action executed and moved to Done: {executed_file.name}")
-    
-    print("\n8. 📊 Dashboard updated by Local Agent")
-    print("   → Local Agent updates Dashboard.md with completion status")
-    
+    print(f"   -> Action executed and moved to Done: {executed_file.name}")
+
+    print("\n8. [UPDATE] Dashboard updated by Local Agent")
+    print("   -> Local Agent updates Dashboard.md with completion status")
+
     # Update dashboard
     dashboard_file = vault_path / "Dashboard.md"
     dashboard_content = f"""---
@@ -233,7 +233,7 @@ status: active
 - Cloud agent may have additional items in its queues
 
 ## Status
-Platinum Tier active – Hybrid operation with Cloud (drafts) + Local (execution)
+Platinum Tier active - Hybrid operation with Cloud (drafts) + Local (execution)
 
 ## Financial Summary
 - Recent Invoice Created: $XXX.XX for client@example.com
@@ -253,15 +253,15 @@ Platinum Tier active – Hybrid operation with Cloud (drafts) + Local (execution
 *Last updated by Local Agent*
 """
     dashboard_file.write_text(dashboard_content)
-    
+
     print("\nDEMONSTRATION COMPLETE!")
     print("=" * 60)
-    print("✅ Cloud Agent operated 24/7 while Local Agent was offline")
-    print("✅ Draft work completed by Cloud Agent")
-    print("✅ Approval request created and processed by Local Agent")
-    print("✅ Sensitive execution handled by Local Agent")
-    print("✅ Hybrid system maintained operational continuity")
-    print("✅ Proper separation of duties maintained (privacy/security)")
+    print("[SUCCESS] Cloud Agent operated 24/7 while Local Agent was offline")
+    print("[SUCCESS] Draft work completed by Cloud Agent")
+    print("[SUCCESS] Approval request created and processed by Local Agent")
+    print("[SUCCESS] Sensitive execution handled by Local Agent")
+    print("[SUCCESS] Hybrid system maintained operational continuity")
+    print("[SUCCESS] Proper separation of duties maintained (privacy/security)")
     print("=" * 60)
 
 if __name__ == "__main__":
