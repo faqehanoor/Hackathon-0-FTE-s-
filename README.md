@@ -1,16 +1,18 @@
 # Hackathon-0-FTE-s-
-Personal AI Employee - Gold Tier Implementation
+Personal AI Employee - Platinum Tier Implementation
 
 ## Overview
 This repository contains a multi-tier autonomous AI employee system with:
 - Bronze Tier: Basic file system watcher and task processing
 - Silver Tier: Multi-channel monitoring (Gmail, WhatsApp, LinkedIn) with advanced automation
 - Gold Tier: Full autonomous business operations with cross-domain integration and Odoo accounting
+- Platinum Tier: Production-ready hybrid system with cloud and local agents for 24/7 operation
 
 ## Directory Structure
 - `AI_Employee_Vault/` - Bronze Tier implementation
 - `AI_Employee_Vault_Silver/` - Silver Tier implementation with multi-channel capabilities
 - `AI_Employee_Vault_Gold/` - Gold Tier implementation with full business automation
+- `AI_Employee_Vault_Platinum/` - Platinum Tier implementation with hybrid cloud+local architecture
 - `.claude/skills/` - Claude skills for all tiers
 - `.specify/` - System specification templates
 
@@ -39,12 +41,25 @@ This repository contains a multi-tier autonomous AI employee system with:
 - Comprehensive audit logging
 - Ralph Wiggum loop for autonomous multi-step tasks
 
+### Platinum Tier
+- Hybrid Cloud + Local Agent Architecture
+- 24/7 Cloud Agent for non-sensitive operations
+- Local Agent for sensitive operations and approvals
+- Proper domain specialization (Cloud vs Local responsibilities)
+- Delegation via synced vault with claim-by-move rule
+- Single-writer rule for Dashboard.md
+- Health monitoring and crash recovery
+- Git-based vault synchronization
+- Privacy-first design (sensitive data stays local)
+- Production-ready architecture
+
 ## Getting Started
 1. Review README_BRONZE.md for Bronze Tier setup
 2. Review README_SILVER.md for Silver Tier setup
 3. Review README_GOLD.md for Gold Tier setup
-4. Configure environment variables in .env
-5. Start the appropriate orchestrator for your tier
+4. Review README_PLATINUM.md for Platinum Tier setup
+5. Configure environment variables in .env
+6. Start the appropriate orchestrator for your tier
 
 ## Current Status
-Gold Tier operational with complete autonomous business operations, cross-domain integration, and Odoo accounting system.
+Platinum Tier operational with complete hybrid cloud+local architecture, ensuring 24/7 operation while maintaining privacy and security.
